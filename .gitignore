@@ -1,0 +1,6 @@
+archive/*
+data/*
+*.rf
+*.mseed
+.DS_Store
+clientCodes/list_of_sent_files.txt
