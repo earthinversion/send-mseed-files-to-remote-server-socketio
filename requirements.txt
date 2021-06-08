@@ -1,0 +1,4 @@
+python-socketio
+cryptography
+eventlet==0.30.2
+obspy

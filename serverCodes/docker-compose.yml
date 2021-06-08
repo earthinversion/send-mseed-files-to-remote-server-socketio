@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  rfi-socketio:
+    build: .
+      #expose:
+      #- 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+    command: bash -c "gunicorn -k eventlet -w 1 --reload app:app -b 0.0.0.0:8000"
+  proxy:
+    build: ./nginx
+    ports:
+      - "1337:1337"
+        #command: bash -c "python3 /code/server.py"
+        #volumes:
+      #- .:/code
+    depends_on:
+      - rfi-socketio
